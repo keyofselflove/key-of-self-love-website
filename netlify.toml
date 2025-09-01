@@ -1,8 +1,8 @@
 [build]
   base    = "key-of-self-love"
-  command = "npm ci && npm run build"
+  command = "npm install --no audit --no-fund && npm run build"
   publish = "dist"
   
 [build.environment]
   NODE_VERSION = "18"
-  
+  NPM_FLAGS    = "--legacy-peer-deps"  
