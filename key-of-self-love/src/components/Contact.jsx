@@ -84,18 +84,8 @@ const Contact = ({ language }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Create mailto link with form data
-    const subject = `Sound Healing Inquiry - ${formData.service || 'General'}`
-    const body = `Naam: ${formData.name}
-E-mail: ${formData.email}
-Telefoon: ${formData.phone || 'Niet opgegeven'}
-Geïnteresseerd in: ${formData.service || 'Niet opgegeven'}
-
-Bericht:
-${formData.message}`
-
-    const mailtoLink = `mailto:Keyofselflove@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = mailtoLink
+    // niets doen, Netlify vangt het formulier zelf af
+  
   }
 
   const contactMethods = [
@@ -166,7 +156,21 @@ ${formData.message}`
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    action="/?success=true"
+                    classname="space-y-6"
+                  >
+                    {/* nodig voor netlify */}
+                    <input type="hidden" name="form-name" value="contact" />
+                    
+                    {/* honeypot tegen spam (onzichtbaar) */}
+                    <p style={{ display: "none" }}>
+                      <label>Laat dit leeg: <input name="bot-field" /></label>
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         {t.name} *
