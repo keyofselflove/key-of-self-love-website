@@ -85,7 +85,6 @@ const Contact = ({ language }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     // niets doen, Netlify vangt het formulier zelf af
-  
   }
 
   const contactMethods = [
@@ -162,7 +161,8 @@ const Contact = ({ language }) => {
                     data-netlify="true"
                     netlify-honeypot="bot-field"
                     action="/?success=true"
-                    classname="space-y-6"
+                    className="space-y-6"
+                    onSubmit={handleSubmit}
                   >
                     {/* nodig voor netlify */}
                     <input type="hidden" name="form-name" value="contact" />
@@ -170,76 +170,48 @@ const Contact = ({ language }) => {
                     {/* honeypot tegen spam (onzichtbaar) */}
                     <p style={{ display: "none" }}>
                       <label>Laat dit leeg: <input name="bot-field" /></label>
-        <CardContent>
-  <form
-    name="contact"
-    method="POST"
-    data-netlify="true"
-    netlify-honeypot="bot-field"
-    action="/?success=true"
-    className="space-y-6"
-  >
-    {/* nodig voor Netlify */}
-    <input type="hidden" name="form-name" value="contact" />
-    <p style={{ display: "none" }}>
-      <label>Laat dit leeg: <input name="bot-field" /></label>
-    </p>
+                    </p>
 
-    {/* Naam */}
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">
-        {t.name}
-      </label>
-      <Input
-        type="text"
-        name="name"
-        placeholder={t.namePlaceholder}
-        required
-      />
-    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.name} *
+                      </label>
+                      <Input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder={t.namePlaceholder}
+                        required
+                      />
+                    </div>
 
-    {/* Email */}
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">
-        {t.email}
-      </label>
-      <Input
-        type="email"
-        name="email"
-        placeholder={t.emailPlaceholder}
-        required
-      />
-    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.email} *
+                      </label>
+                      <Input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder={t.emailPlaceholder}
+                        required
+                      />
+                    </div>
 
-    {/* Telefoon */}
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">
-        {t.phone}
-      </label>
-      <Input
-        type="tel"
-        name="phone"
-        placeholder={t.phonePlaceholder}
-      />
-    </div>
-
-    {/* Bericht */}
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">
-        {t.message}
-      </label>
-      <textarea
-        name="message"
-        placeholder={t.messagePlaceholder}
-        required
-        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
-      />
-    </div>
-
-    {/* Verstuur-knop */}
-    <Button type="submit">Versturen</Button>
-  </form>
-</CardContent>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.phone}
+                      </label>
+                      <Input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder={t.phonePlaceholder}
+                      />
+                    </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
