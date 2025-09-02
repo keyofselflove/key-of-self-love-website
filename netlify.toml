@@ -1,6 +1,7 @@
 [build]
-  command = "cd key-of-self-love && npm install --legacy-peer-deps && npm run build"
-  publish = "key-of-self-love/dist"
+  base = "key-of-self-love/"
+  command = "npm install --legacy-peer-deps && npm run build"
+  publish = "dist"
   
 [build.environment]
   NODE_VERSION = "18"
