@@ -170,67 +170,76 @@ const Contact = ({ language }) => {
                     {/* honeypot tegen spam (onzichtbaar) */}
                     <p style={{ display: "none" }}>
                       <label>Laat dit leeg: <input name="bot-field" /></label>
+        <CardContent>
+  <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/?success=true"
+    className="space-y-6"
+  >
+    {/* nodig voor Netlify */}
+    <input type="hidden" name="form-name" value="contact" />
+    <p style={{ display: "none" }}>
+      <label>Laat dit leeg: <input name="bot-field" /></label>
+    </p>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t.name} *
-                      </label>
-                      <Input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder={t.namePlaceholder}
-                        required
-                      />
-                    </div>
+    {/* Naam */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {t.name}
+      </label>
+      <Input
+        type="text"
+        name="name"
+        placeholder={t.namePlaceholder}
+        required
+      />
+    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t.email} *
-                      </label>
-                      <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder={t.emailPlaceholder}
-                        required
-                      />
-                    </div>
+    {/* Email */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {t.email}
+      </label>
+      <Input
+        type="email"
+        name="email"
+        placeholder={t.emailPlaceholder}
+        required
+      />
+    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t.phone}
-                      </label>
-                      <Input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder={t.phonePlaceholder}
-                      />
-                    </div>
+    {/* Telefoon */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {t.phone}
+      </label>
+      <Input
+        type="tel"
+        name="phone"
+        placeholder={t.phonePlaceholder}
+      />
+    </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t.service}
-                      </label>
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                      >
-                        <option value="">{t.selectService}</option>
-                        <option value={t.individual}>{t.individual}</option>
-                        <option value={t.group}>{t.group}</option>
-                        <option value={t.workshop}>{t.workshop}</option>
-                        <option value={t.online}>{t.online}</option>
-                        <option value={t.package}>{t.package}</option>
-                        <option value={t.other}>{t.other}</option>
-                      </select>
-                    </div>
+    {/* Bericht */}
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {t.message}
+      </label>
+      <textarea
+        name="message"
+        placeholder={t.messagePlaceholder}
+        required
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
+      />
+    </div>
+
+    {/* Verstuur-knop */}
+    <Button type="submit">Versturen</Button>
+  </form>
+</CardContent>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
