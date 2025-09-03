@@ -50,7 +50,7 @@ const Services = ({ language }) => {
       includes: language === 'nl' 
         ? 'Intake gesprek, sound healing sessie, nabespreking'
         : 'Intake conversation, sound healing session, follow-up discussion',
-      price: '€125',
+      price: '$120',
       features: language === 'nl' ? [
         'Volledig gepersonaliseerde ervaring',
         'Gebruik van verschillende instrumenten',
@@ -74,9 +74,9 @@ const Services = ({ language }) => {
       includes: language === 'nl'
         ? 'Groepsmeditatie, sound journey, thee ceremonie'
         : 'Group meditation, sound journey, tea ceremony',
-      price: '€45',
+      price: '$45',
       features: language === 'nl' ? [
-        'Maximaal 8 deelnemers',
+        'Minimaal 3 deelnemers / Maximaal 8 deelnemers',
         'Collectieve healing energie',
         'Sociale verbinding',
         'Maandelijkse sessies'
@@ -98,17 +98,17 @@ const Services = ({ language }) => {
       includes: language === 'nl'
         ? 'Theorie, praktijk, eigen instrumenten proberen, handout'
         : 'Theory, practice, trying your own instruments, handout',
-      price: '€85',
+      price: '$88',
       features: language === 'nl' ? [
         'Hands-on ervaring',
         'Theorie en praktijk',
         'Neem je eigen instrumenten mee',
-        'Kleine groepen (max 6 personen)'
+        'Kleine groepen (min 3 personen max 6 personen)'
       ] : [
         'Hands-on experience',
         'Theory and practice',
         'Take home your own instruments',
-        'Small groups (max 6 people)'
+        'Small groups (min 3 people max 6 people)'
       ]
     },
     {
@@ -117,12 +117,12 @@ const Services = ({ language }) => {
       description: language === 'nl'
         ? 'Persoonlijke begeleiding en coaching vanuit het comfort van je eigen huis'
         : 'Personal guidance and coaching from the comfort of your own home',
-      duration: '60 ' + (language === 'nl' ? 'minuten' : 'minutes'),
+      duration: '90/120 ' + (language === 'nl' ? 'minuten' : 'minutes'),
       location: 'Online (Zoom)',
       includes: language === 'nl'
         ? 'Video call, ademwerk, meditatie, persoonlijke coaching'
         : 'Video call, breathwork, meditation, personal coaching',
-      price: '€75',
+      price: '$90',
       features: language === 'nl' ? [
         'Vanuit je eigen veilige ruimte',
         'Flexibele planning',
@@ -143,15 +143,15 @@ const Services = ({ language }) => {
       description: language === 'nl' 
         ? 'Drie individuele sessies voor diepere transformatie'
         : 'Three individual sessions for deeper transformation',
-      price: '€340',
+      price: '$333',
       savings: language === 'nl' ? 'Bespaar €35' : 'Save €35',
       features: language === 'nl' ? [
-        '3 individuele sessies van 90 minuten',
+        '3 individuele sessies van 90/120 minuten',
         'Persoonlijk transformatie plan',
         'WhatsApp ondersteuning tussen sessies',
         'Geldig 6 maanden'
       ] : [
-        '3 individual sessions of 90 minutes',
+        '3 individual sessions of 90/120 minutes',
         'Personal transformation plan',
         'WhatsApp support between sessions',
         'Valid for 6 months'
@@ -162,7 +162,7 @@ const Services = ({ language }) => {
       description: language === 'nl'
         ? 'Onbeperkt deelnemen aan groepssessies'
         : 'Unlimited participation in group sessions',
-      price: '€120',
+      price: '$120',
       savings: language === 'nl' ? 'Per maand' : 'Per month',
       features: language === 'nl' ? [
         'Onbeperkt groepssessies',
