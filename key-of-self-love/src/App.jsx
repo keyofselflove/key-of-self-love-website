@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
 import { MessageCircle } from 'lucide-react'
 import './App.css'
 
@@ -14,6 +14,8 @@ import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Partners from './components/Partners'
 import Policies from './components/Policies'
+import ElementalExperienceDetail from './components/ElementalExperienceDetail'
+import { MoreThanWhatWeHear, SoundResonanceCategory } from './components/JournalSoundResonance'
 
 function App() {
   const [language, setLanguage] = useState('en')
@@ -31,8 +33,13 @@ function App() {
           <Route path="/about" element={<About language={language} />} />
           <Route path="/sound-healing" element={<SoundHealing language={language} />} />
           <Route path="/services" element={<Services language={language} />} />
+          <Route path="/experiences/:element" element={<ElementalExperienceDetail />} />
+          <Route path="/resonance-collection" element={<Navigate to="/services" replace />} />
+          <Route path="/resonance-healing-journey" element={<Navigate to="/services#resonance-healing-journey" replace />} />
           <Route path="/testimonials" element={<Testimonials language={language} />} />
           <Route path="/blog" element={<Blog language={language} />} />
+          <Route path="/blog/sound-and-resonance" element={<SoundResonanceCategory />} />
+          <Route path="/blog/sound-and-resonance/more-than-what-we-hear" element={<MoreThanWhatWeHear />} />
           <Route path="/partners" element={<Partners language={language} />} />
           <Route path="/policies" element={<Policies language={language} />} />
           <Route path="/contact" element={<Contact language={language} />} />

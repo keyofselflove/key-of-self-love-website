@@ -188,3 +188,9 @@ img[src*="experience-"] {
 img[src*="experience-"] + .absolute.inset-0 {
   background: linear-gradient(115deg, rgba(255, 253, 248, .84), rgba(255, 253, 248, .76) 58%, rgba(255, 253, 248, .68)) !important;
 }
+
+@media (min-width: 768px) {
+  img[src*="experience-"] + .absolute.inset-0 {
+    background: linear-gradient(115deg, rgba(255, 253, 248, .79), rgba(255, 253, 248, .68) 58%, rgba(255, 253, 248, .56)) !important;
+  }
+}
