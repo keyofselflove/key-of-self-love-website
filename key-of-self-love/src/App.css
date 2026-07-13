@@ -42,25 +42,34 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --brand-gold: #d9a20b;
+  --brand-gold-deep: #b57b00;
+  --brand-aqua: #57d8c9;
+  --brand-sky: #54c8ef;
+  --brand-lilac: #9d7cf3;
+  --brand-rose: #ed7aa7;
+  --brand-coral: #f39a7d;
+  --brand-cream: #fffdf8;
+  --brand-ink: #4d4542;
+  --radius: 1rem;
+  --background: #fffdf8;
+  --foreground: #4d4542;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --primary: #d9a20b;
+  --primary-foreground: #ffffff;
+  --secondary: #eafbf8;
+  --secondary-foreground: #4d4542;
+  --muted: #f8f4f2;
+  --muted-foreground: #766c68;
+  --accent: #e8fbf8;
+  --accent-foreground: #346f69;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #d9eee9;
+  --input: #d9eee9;
+  --ring: #57d8c9;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -116,5 +125,66 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    line-height: 1.65;
+    background:
+      radial-gradient(circle at 8% 4%, rgba(84, 200, 239, .07), transparent 24rem),
+      radial-gradient(circle at 92% 12%, rgba(237, 122, 167, .07), transparent 26rem),
+      var(--brand-cream);
   }
+
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: .01em;
+  }
+
+  h1 { letter-spacing: .018em; }
+
+  a, button { text-underline-offset: .2em; }
+}
+
+@layer components {
+  nav {
+    border-bottom-color: rgba(87, 216, 201, .32) !important;
+    box-shadow: 0 8px 30px rgba(84, 200, 239, .07);
+  }
+
+  section[class*="bg-gradient-to"] {
+    background-image: linear-gradient(125deg, rgba(84, 200, 239, .10), rgba(157, 124, 243, .08), rgba(237, 122, 167, .09), rgba(87, 216, 201, .10)) !important;
+  }
+
+  [data-slot="card"] {
+    background: rgba(255, 255, 255, .94);
+    border-color: rgba(87, 216, 201, .28) !important;
+    box-shadow: 0 14px 35px rgba(84, 200, 239, .08);
+  }
+
+  [data-slot="button"] {
+    border-radius: 999px;
+    letter-spacing: .035em;
+  }
+}
+
+/* Brand-colour compatibility for existing Tailwind utility classes. */
+.text-amber-400, .text-amber-500, .text-amber-600, .text-amber-700 { color: var(--brand-gold) !important; }
+.hover\:text-amber-400:hover, .hover\:text-amber-600:hover, .hover\:text-amber-700:hover { color: var(--brand-gold-deep) !important; }
+.bg-amber-50, .bg-amber-100 { background-color: rgba(87, 216, 201, .10) !important; }
+.bg-amber-600, .bg-amber-700 { background-color: var(--brand-gold) !important; color: white !important; }
+.hover\:bg-amber-700:hover, .hover\:bg-amber-800:hover { background-color: var(--brand-gold-deep) !important; }
+.border-amber-200, .border-amber-400, .border-amber-600, .border-amber-700 { border-color: rgba(217, 162, 11, .52) !important; }
+.border-pink-100, .border-purple-200 { border-color: rgba(87, 216, 201, .30) !important; }
+.text-purple-700 { color: #7657c5 !important; }
+.bg-pink-50 { background-color: rgba(237, 122, 167, .08) !important; }
+.hover\:bg-pink-50:hover { background-color: rgba(87, 216, 201, .10) !important; }
+
+/* Keep the Experience photography clearly visible beneath the card copy. */
+img[src*="experience-"] {
+  filter: saturate(.9) contrast(.96) brightness(1.08) !important;
+  transform: scale(1.01);
+}
+
+img[src*="experience-"] + .absolute.inset-0 {
+  background: linear-gradient(115deg, rgba(255, 253, 248, .84), rgba(255, 253, 248, .76) 58%, rgba(255, 253, 248, .68)) !important;
 }

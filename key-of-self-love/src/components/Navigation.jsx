@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import logo from '../assets/2916EE18-0612-401A-98FE-1F145D9BE1A6.png'
+import logo from '../assets/brand-logo.png'
 
 const Navigation = ({ language, toggleLanguage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,21 +11,33 @@ const Navigation = ({ language, toggleLanguage }) => {
   const translations = {
     nl: {
       home: 'Home',
-      about: 'Over Mij',
-      soundHealing: 'Sound Healing',
-      services: 'Diensten & Prijzen',
+      about: 'Over Ons',
+      soundHealing: 'Sound & Resonance',
+      services: 'Ervaringen',
       testimonials: 'Ervaringen',
-      blog: 'Blog',
+      blog: 'Journal',
+      partners: 'Partners',
       contact: 'Contact'
     },
     en: {
       home: 'Home',
-      about: 'About Me',
-      soundHealing: 'Sound Healing',
-      services: 'Services & Prices',
-      testimonials: 'Testimonials',
-      blog: 'Blog',
+      about: 'About Us',
+      soundHealing: 'Sound & Resonance',
+      services: 'Experiences',
+      testimonials: 'Guest Voices',
+      blog: 'Journal',
+      partners: 'Partners',
       contact: 'Contact'
+    },
+    es: {
+      home: 'Inicio',
+      about: 'Sobre Nosotros',
+      soundHealing: 'Sonido y Resonancia',
+      services: 'Experiencias',
+      testimonials: 'Testimonios',
+      blog: 'Journal',
+      partners: 'Socios',
+      contact: 'Contacto'
     }
   }
 
@@ -38,6 +50,7 @@ const Navigation = ({ language, toggleLanguage }) => {
     { path: '/services', label: t.services },
     { path: '/testimonials', label: t.testimonials },
     { path: '/blog', label: t.blog },
+    { path: '/partners', label: t.partners },
     { path: '/contact', label: t.contact }
   ]
 
@@ -55,7 +68,7 @@ const Navigation = ({ language, toggleLanguage }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -130,4 +143,3 @@ const Navigation = ({ language, toggleLanguage }) => {
 }
 
 export default Navigation
-
