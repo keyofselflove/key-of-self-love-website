@@ -86,7 +86,7 @@ function App() {
         <footer className="bg-[#CFC8BD] text-gray-800 py-10">
           <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
             <div><p className="font-serif text-xl text-amber-700">Key of Self Love</p><p className="text-sm mt-2">{g.tagline}</p></div>
-            <div className="text-sm space-y-2"><p>{g.appointment}</p><p>+297 56 14 808</p><p><a href="mailto:keyofselflove@gmail.com?subject=Key%20of%20Self%20Love%20Enquiry" className="hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600">keyofselflove@gmail.com</a></p></div>
+            <div className="text-sm space-y-2"><p>{g.appointment}</p><p>+297 56 14 808</p><p><a href="mailto:keyofselflove@gmail.com" className="hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600">keyofselflove@gmail.com</a></p></div>
             <div className="text-sm flex md:justify-end gap-5"><Link to="/policies" className="hover:text-amber-700">{g.policies}</Link><Link to="/contact" className="hover:text-amber-700">{g.contact}</Link></div>
           </div>
         </footer>
