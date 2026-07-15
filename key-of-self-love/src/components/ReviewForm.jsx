@@ -61,7 +61,7 @@ const ReviewForm = ({ language }) => {
     setStatus('sending')
     try {
       const body = new URLSearchParams(new FormData(form)).toString()
-      const response = await fetch('/', {
+      const response = await fetch(form.getAttribute('action') || '/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body
@@ -79,8 +79,8 @@ const ReviewForm = ({ language }) => {
 
   return <main className="pt-20 bg-white">
     <section className="py-16 md:py-20 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50"><div className="max-w-3xl mx-auto px-5"><Link to="/testimonials" className="inline-flex items-center gap-2 text-sm text-amber-700 mb-7"><ArrowLeft className="h-4 w-4"/>{t.back}</Link><h1 className="text-5xl md:text-6xl text-amber-700 mb-4">{t.title}</h1><p className="text-xl text-gray-700">{t.sub}</p></div></section>
-    <section className="py-16"><form name="guest-review" method="POST" action="/review-thank-you" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={submitReview} className="max-w-3xl mx-auto px-5 space-y-7">
-      <input type="hidden" name="form-name" value="guest-review"/><input type="hidden" name="language" value={language}/>
+    <section className="py-16"><form name="guest-voices-review" method="POST" action="/review-thank-you" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={submitReview} className="max-w-3xl mx-auto px-5 space-y-7">
+      <input type="hidden" name="form-name" value="guest-voices-review"/><input type="hidden" name="language" value={language}/>
       <p className="hidden" aria-hidden="true"><label>Do not fill this out: <input name="bot-field" tabIndex="-1" autoComplete="off"/></label></p>
       <label className="block text-gray-700 font-medium">{t.name}<input className={field} name="name" autoComplete="name" required onInvalid={e=>e.currentTarget.setCustomValidity(t.required)} onInput={e=>e.currentTarget.setCustomValidity('')}/></label>
       <label className="block text-gray-700 font-medium">{t.email}<input className={field} type="email" name="email" autoComplete="email" required onInvalid={e=>e.currentTarget.setCustomValidity(t.emailError)} onInput={e=>e.currentTarget.setCustomValidity('')}/></label>

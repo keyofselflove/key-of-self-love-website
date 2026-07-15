@@ -9,8 +9,8 @@
   </head>
   <body>
     <!-- Static copy allows Netlify to detect the React-rendered review form during deployment. -->
-    <form name="guest-review" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-      <input type="hidden" name="form-name" value="guest-review" />
+    <form name="guest-voices-review" method="POST" action="/review-thank-you" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="guest-voices-review" />
       <input name="bot-field" />
       <input name="name" />
       <input name="email" type="email" />
