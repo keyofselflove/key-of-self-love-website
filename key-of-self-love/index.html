@@ -8,6 +8,21 @@
     <title>Key of Self Love | Transformational Wellness Experiences in Aruba</title>
   </head>
   <body>
+    <!-- Static copy allows Netlify to detect the React-rendered review form during deployment. -->
+    <form name="guest-review" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="guest-review" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <input name="country" />
+      <input name="experience" />
+      <textarea name="review"></textarea>
+      <input name="rating" />
+      <input name="display-preference" />
+      <input name="publication-consent" />
+      <input name="media-permission" />
+      <input name="language" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

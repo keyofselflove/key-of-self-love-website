@@ -9,9 +9,9 @@ const Navigation = ({ language, toggleLanguage }) => {
   const location = useLocation()
 
   const translations = {
-    nl: { home:'Home', about:'Over Ons', soundHealing:'Sound & Resonance', services:'Ervaringen', testimonials:'Ervaringen', blog:'Journal', partners:'Partners', contact:'Contact' },
-    en: { home:'Home', about:'About Us', soundHealing:'Sound & Resonance', services:'Experiences', testimonials:'Guest Voices', blog:'Journal', partners:'Partners', contact:'Contact' },
-    es: { home:'Inicio', about:'Sobre Nosotros', soundHealing:'Sonido y Resonancia', services:'Experiencias', testimonials:'Testimonios', blog:'Journal', partners:'Socios', contact:'Contacto' }
+    nl: { home:'Home', about:'Over Ons', soundHealing:'Klank & Resonantie', services:'Ervaringen', testimonials:'Gastervaringen', blog:'Journal', partners:'Partners', contact:'Contact', open:'Open navigatiemenu', close:'Sluit navigatiemenu' },
+    en: { home:'Home', about:'About Us', soundHealing:'Sound & Resonance', services:'Experiences', testimonials:'Guest Voices', blog:'Journal', partners:'Partners', contact:'Contact', open:'Open navigation menu', close:'Close navigation menu' },
+    es: { home:'Inicio', about:'Sobre Nosotros', soundHealing:'Sonido y Resonancia', services:'Experiencias', testimonials:'Testimonios', blog:'Journal', partners:'Colaboradores', contact:'Contacto', open:'Abrir menú de navegación', close:'Cerrar menú de navegación' }
   }
 
   const t = translations[language]
@@ -35,8 +35,8 @@ const Navigation = ({ language, toggleLanguage }) => {
           <Button variant="outline" size="sm" onClick={toggleLanguage} className="flex items-center space-x-1"><Globe className="h-4 w-4"/><span>{language.toUpperCase()}</span></Button>
         </div>
         <div className="lg:hidden flex items-center space-x-2">
-          <Button variant="outline" size="sm" onClick={toggleLanguage} className="flex items-center space-x-1"><Globe className="h-4 w-4"/><span>{language.toUpperCase()}</span></Button>
-          <Button variant="ghost" size="sm" aria-label={isMenuOpen?'Close navigation menu':'Open navigation menu'} aria-expanded={isMenuOpen} onClick={()=>setIsMenuOpen(!isMenuOpen)}>{isMenuOpen?<X className="h-6 w-6"/>:<Menu className="h-6 w-6"/>}</Button>
+          <Button variant="outline" size="sm" onClick={toggleLanguage} className="min-h-11 flex items-center space-x-1"><Globe className="h-4 w-4"/><span>{language.toUpperCase()}</span></Button>
+          <Button variant="ghost" size="sm" className="min-h-11 min-w-11" aria-label={isMenuOpen?t.close:t.open} aria-expanded={isMenuOpen} onClick={()=>setIsMenuOpen(!isMenuOpen)}>{isMenuOpen?<X className="h-6 w-6"/>:<Menu className="h-6 w-6"/>}</Button>
         </div>
       </div>
       {isMenuOpen&&<div className="lg:hidden py-4 border-t border-pink-100"><div className="flex flex-col space-y-2">{navItems.map(item=><Link key={item.path} to={item.path} onClick={()=>setIsMenuOpen(false)} className={`px-3 py-2 text-sm font-medium transition-colors hover:text-amber-600 hover:bg-pink-50 rounded-md ${location.pathname===item.path?'text-amber-600 bg-pink-50':'text-gray-700'}`}>{item.label}</Link>)}</div></div>}

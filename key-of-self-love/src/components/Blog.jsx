@@ -4,7 +4,11 @@ import { Button } from '@/components/ui/button'
 import { BookOpen, Waves, Leaf, Heart } from 'lucide-react'
 import journalHero from '../assets/journal-hero.jpg'
 
-const copy={en:{title:'Journal',sub:'Reflections on sound, nature, Aruba and meaningful transformation.',intro:'The Journal is being created as a place for thoughtful, educational and experience-led stories. Articles will be published only when complete and properly reviewed.',topics:['Sound & Resonance','Aruba & Nature Immersion','Wellbeing & Conscious Living','Behind the Experience'],cta:'Have a question in the meantime?'},nl:{title:'Journal',sub:'Reflecties over klank, natuur, Aruba en betekenisvolle transformatie.',intro:'Het Journal wordt een plek voor doordachte, educatieve en ervaringsgerichte verhalen. Artikelen verschijnen pas wanneer ze compleet en zorgvuldig gecontroleerd zijn.',topics:['Klank & resonantie','Aruba en natuurbeleving','Welzijn en bewust leven','Achter de ervaringen'],cta:'Heb je ondertussen een vraag?'},es:{title:'Journal',sub:'Reflexiones sobre sonido, naturaleza, Aruba y transformación significativa.',intro:'El Journal será un espacio para historias educativas y reflexivas. Los artículos solo se publicarán cuando estén completos y revisados.',topics:['Sonido y resonancia','Aruba y naturaleza','Bienestar y vida consciente','Detrás de las experiencias'],cta:'¿Tienes una pregunta mientras tanto?'}}
+const copy={
+  en:{title:'Journal',sub:'Reflections on sound, nature, Aruba and meaningful transformation.',intro:'The Journal is being created as a place for thoughtful, educational and experience-led stories. Articles will be published only when complete and properly reviewed.',topics:['Sound & Resonance','Aruba & Nature Immersion','Wellbeing & Conscious Living','Behind the Experience'],cta:'Have a question in the meantime?',contact:'Contact us',open:'Open Sound & Resonance stories'},
+  nl:{title:'Journal',sub:'Reflecties over klank, natuur, Aruba en betekenisvolle transformatie.',intro:'Het Journal wordt een plek voor doordachte, educatieve en ervaringsgerichte verhalen. Artikelen verschijnen pas wanneer ze compleet en zorgvuldig gecontroleerd zijn.',topics:['Klank & resonantie','Aruba en natuurbeleving','Welzijn en bewust leven','Achter de ervaringen'],cta:'Heb je ondertussen een vraag?',contact:'Neem contact op',open:'Open de verhalen over Klank & resonantie'},
+  es:{title:'Journal',sub:'Reflexiones sobre sonido, naturaleza, Aruba y una transformación significativa.',intro:'El Journal está concebido como un espacio para historias reflexivas, educativas y basadas en la experiencia. Los artículos se publicarán únicamente cuando estén completos y hayan sido revisados cuidadosamente.',topics:['Sonido y resonancia','Aruba e inmersión en la naturaleza','Bienestar y vida consciente','Detrás de la experiencia'],cta:'¿Tienes alguna pregunta mientras tanto?',contact:'Contáctanos',open:'Abrir las historias de Sonido y resonancia'}
+}
 
 const Blog=({language})=>{
   const t=copy[language]||copy.en
@@ -26,11 +30,11 @@ const Blog=({language})=>{
             const Icon=icons[index]
             const content=<><Icon className="h-7 w-7 text-amber-700 mx-auto mb-4"/><p className="font-medium">{topic}</p></>
             return index===0
-              ? <Link key={topic} to="/blog/sound-and-resonance" className="border border-pink-100 p-6 rounded-xl text-center hover:bg-amber-50 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300" aria-label="Open Sound and Resonance stories">{content}</Link>
+              ? <Link key={topic} to="/blog/sound-and-resonance" className="border border-pink-100 p-6 rounded-xl text-center hover:bg-amber-50 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300" aria-label={t.open}>{content}</Link>
               : <div key={topic} className="border border-pink-100 p-6 rounded-xl text-center">{content}</div>
           })}
         </div>
-        <div className="text-center mt-14"><h2 className="text-2xl font-serif text-amber-700 mb-5">{t.cta}</h2><Button asChild variant="outline"><Link to="/contact">Contact us</Link></Button></div>
+        <div className="text-center mt-14"><h2 className="text-2xl font-serif text-amber-700 mb-5">{t.cta}</h2><Button asChild variant="outline"><Link to="/contact">{t.contact}</Link></Button></div>
       </div>
     </section>
   </div>
